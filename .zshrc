@@ -3,25 +3,6 @@
 export ZSH="$HOME/.oh-my-zsh"
 
 
-# === Install the Spaceship prompt ===
-# git clone https://github.com/spaceship-prompt/spaceship-prompt.git "$ZSH_CUSTOM/themes/spaceship-prompt" --depth=1
-# ln -s "$ZSH_CUSTOM/themes/spaceship-prompt/spaceship.zsh-theme" "$ZSH_CUSTOM/themes/spaceship.zsh-theme"
-ZSH_THEME="spaceship"
-
-
-# === Keep only the features I want, otherwise it's too slow ===
-# (reference : https://spaceship-prompt.sh/options)
-SPACESHIP_PROMPT_ORDER=(
-  user          # Username section
-  dir           # Current directory section
-  host          # Hostname section
-  git           # Git section (git_branch + git_status)
-  exec_time     # Execution time
-  char          # Prompt character
-)
-SPACESHIP_GIT_STATUS_SHOW=false
-
-
 # === Install plugins ===
 # git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
 # git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting
@@ -74,3 +55,10 @@ killport() {
     fi
     
 }
+
+# === Install the starship prompt ===
+# brew install starship
+
+export STARSHIP_CONFIG=~/dotfiles/starship.toml
+
+eval "$(starship init zsh)"

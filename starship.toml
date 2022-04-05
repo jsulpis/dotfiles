@@ -1,0 +1,14 @@
+format = """
+$username\
+$hostname\
+$localip\
+$directory\
+$git_branch\
+$git_state\
+$package\
+$character\
+"""
+
+[character]
+success_symbol = "[➜](bold green)"
+error_symbol = "[➜](bold red)"
