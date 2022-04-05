@@ -42,10 +42,12 @@ source $(brew --prefix nvm)/nvm.sh
 # === Git Aliases ===
 alias gcl="git clone"
 alias grt='cd "$(git rev-parse --show-toplevel)"' # Go to project root
+alias gcm="git checkout main && git pull"
+alias grm="gcm && git checkout - && git rebase main"
 
 alias gst="git status"
-alias gp="git push origin HEAD"
-alias gpf="git push origin HEAD --force-with-lease"
+alias gps="git push origin HEAD"
+alias gpsf="git push origin HEAD --force-with-lease" # After rebase :) 
 alias gpl="git pull"
 
 alias ga="git add -A"
@@ -57,3 +59,18 @@ alias gsp="git stash pop"
 alias gl="git lg --all"
 alias grb="git rebase"
 alias gco="git checkout"
+
+
+# === Utilities ===
+killport() {
+    pid=$(lsof -n -i:$1 | grep LISTEN | awk '{ print $2 }' | uniq)
+    
+    if [ ! -z "$pid" ] 
+    then 
+        kill -TERM $pid || kill -KILL $pid;
+        echo "Successfully killed process $pid listening on port $1.";
+    else 
+        echo "No process listening on port $1.";
+    fi
+    
+}
