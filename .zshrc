@@ -23,8 +23,10 @@ source $(brew --prefix nvm)/nvm.sh
 # === Git Aliases ===
 alias gcl="git clone"
 alias grt='cd "$(git rev-parse --show-toplevel)"' # Go to project root
-alias gcm="git checkout main && git pull"
-alias grm="gcm && git checkout - && git rebase main"
+
+# if your repo has been initialized locally (not cloned), run 'git remote set-head origin -a'
+alias gcm="git switch $(git symbolic-ref refs/remotes/origin/HEAD | cut -d/ -f4) && git pull origin HEAD"
+alias grm="git fetch && git rebase origin/HEAD"
 
 alias gst="git status"
 alias gps="git push origin HEAD"
