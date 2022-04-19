@@ -1,9 +1,9 @@
-# === Install Oh My Zsh ===
+# === Oh My Zsh ===
 # sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 export ZSH="$HOME/.oh-my-zsh"
 
 
-# === Install plugins ===
+# === Zsh Plugin ===
 # git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
 # git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting
 plugins=(
@@ -14,7 +14,7 @@ plugins=(
 source $ZSH/oh-my-zsh.sh
 
 
-# === Load nvm ===
+# === NVM ===
 # brew install nvm 
 export NVM_DIR="$HOME/.nvm"
 source $(brew --prefix nvm)/nvm.sh
@@ -39,9 +39,7 @@ alias gca="git commit --amend --no-edit"
 alias gs="git stash"
 alias gsp="git stash pop"
 
-alias gl="git lg --all"
-alias grb="git rebase"
-alias gco="git checkout"
+alias gl="git lg --all" # git alias defined in .gitconfig
 
 
 # === Utilities ===
@@ -58,9 +56,8 @@ killport() {
     
 }
 
-# === Install the starship prompt ===
+
+# === Starship prompt ===
 # brew install starship
-
 export STARSHIP_CONFIG=~/.dotfiles/starship.toml
-
 eval "$(starship init zsh)"
