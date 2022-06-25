@@ -1,5 +1,8 @@
 [alias]
 	lg = log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --max-count=15
+[user]
+	name = Julien Sulpis
+	email = julien.sulpis@gmail.com
 [pull]
 	rebase = true
 [push]
