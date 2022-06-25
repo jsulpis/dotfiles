@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/zsh
 
 function printYellow() {
     echo "\n\033[33m$1\033[0m"
@@ -53,6 +53,16 @@ fi
 printInstalling "Zsh plugins"
 git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions 2>/dev/null
 git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting 2>/dev/null
+
+source ./.zshrc
+
+# Install node and global dependencies
+if test ! $(which node); then
+    printInstalling "node LTS"
+    nvm install --lts
+fi
+printInstalling "global npm packages";
+pnpm i -g serve npm-check-updates @antfu/ni
 
 printYellow "Creating symlinks in the home directory..."
 for file in .zshrc .gitconfig 

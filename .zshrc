@@ -61,3 +61,8 @@ killport() {
 # brew install starship
 export STARSHIP_CONFIG=~/.dotfiles/starship.toml
 eval "$(starship init zsh)"
+
+
+# === pnpm ===
+export PNPM_HOME="$HOME/Library/pnpm"
+export PATH="$PNPM_HOME:$PATH"

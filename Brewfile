@@ -5,6 +5,8 @@ tap 'homebrew/bundle'
 
 # Binaries
 brew 'nvm'
+brew 'pnpm'
+brew 'yarn'
 brew 'starship'
 brew 'mas'
 
