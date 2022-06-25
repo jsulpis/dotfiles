@@ -15,8 +15,13 @@ function printInstalled() {
 
 printYellow "|\n| Hi $(whoami)! Let's get you set up.\n|"
 
+if [ ! -f ~/.ssh/config ]; then
+    printYellow "Generating SSH keys and configuration..."
+    ./ssh.sh "julien.sulpis@gmail.com"
+fi
+
 # Install Rosetta which is required for the KDrive app
-if [ ! -d /usr/libexec/rosetta ] ; then
+if [ ! -d /usr/libexec/rosetta ]; then
     printInstalling "rosetta"
     sudo softwareupdate --install-rosetta --agree-to-license
 fi
@@ -49,8 +54,14 @@ printInstalling "Zsh plugins"
 git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions 2>/dev/null
 git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting 2>/dev/null
 
-# Removes .zshrc from $HOME (if it exists) and symlinks the .zshrc file from the .dotfiles
-rm -rf $HOME/.zshrc
-ln -s $(pwd)/.zshrc $HOME/.zshrc
+printYellow "Creating symlinks in the home directory..."
+for file in .zshrc .gitconfig 
+    do ln -sF $(pwd)/$file $HOME/$file
+done
 
 printGreen "\nInstallation complete !"
+echo "\nNext steps:"
+echo "  - log into your web browsers and synchronize the profiles and settings"
+echo "  - log into Google and GitHub"
+echo "  - log into the other apps listed in the Brewfile and other online services"
+echo "  - run 'pbcopy < ~/.ssh/id_ed25519.pub' and paste that into your GitHub settings to import your SSH key"
