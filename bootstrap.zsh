@@ -34,7 +34,7 @@ fi
 ###################
 
 # required for the KDrive app
-if [ ! -d /usr/libexec/rosetta ]; then
+if [ ! $(/usr/bin/pgrep oahd) ]; then
     printInstalling "rosetta"
     sudo softwareupdate --install-rosetta --agree-to-license
 fi
@@ -43,7 +43,7 @@ fi
 # === Homebrew === #
 ####################
 
-if test ! $(which brew); then
+if [ ! $(command -v brew) ]; then
     printInstalling "homebrew"
     /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 
@@ -62,9 +62,9 @@ brew bundle
 # === Oh My Zsh === #
 #####################
 
-if test ! $ZSH; then
+if [ ! -d ~/.oh-my-zsh ]; then
     printInstalling "Oh My Zsh"
-    /bin/sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/HEAD/tools/install.sh)"
+    RUNZSH='no' /bin/sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/HEAD/tools/install.sh)"
 fi
 
 printInstalling "Zsh plugins"
@@ -77,7 +77,7 @@ source ./.zshrc
 # === Node === #
 ################
 
-if test ! $(which node); then
+if [ ! "$(nvm ls | grep lts)" ]; then
     printInstalling "node LTS"
     nvm install --lts
 fi

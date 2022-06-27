@@ -7,13 +7,10 @@ _I suggest you fork this repo so that you have the freedom to maintain your own 
 Clone the repo:
 
 ```bash
-git clone git@github.com:jsulpis/dotfiles.git ~/.dotfiles
+git clone git@github.com:jsulpis/dotfiles.git ~/.dotfiles && cd ~/.dotfiles
 ```
 
-Create a symbolic link for `.zshrc`:
-
+Run the script:
 ```bash
-ln -s ~/.dotfiles/.zshrc ~/.zshrc
+./bootstrap.zsh
 ```
-
-Read the `.zshrc` file for additionnal instructions (like zsh plugins installation).
