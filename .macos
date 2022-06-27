@@ -51,9 +51,12 @@ defaults write com.apple.finder FXRemoveOldTrashItems -bool true
 defaults write com.apple.dock mouse-over-hilite-stack -bool true
 
 # Wipe all (default) app icons from the Dock
-# This is only really useful when setting up a new Mac, or if you don’t use
-# the Dock to launch apps.
 defaults write com.apple.dock persistent-apps -array
+
+# Add apps in the dock
+for dockItem in {/Applications/{"Brave Browser","Google Chrome","Visual Studio Code","Figma","Thunderbird","Spotify"},/System/Applications/{"System Preferences","Calendar"}}.app; do
+  defaults write com.apple.dock persistent-apps -array-add "<dict><key>tile-data</key><dict><key>file-data</key><dict><key>_CFURLString</key><string>$dockItem</string><key>_CFURLStringType</key><integer>0</integer></dict></dict></dict>"
+done
 
 # Automatically hide and show the Dock
 defaults write com.apple.dock "autohide" -bool "true"
