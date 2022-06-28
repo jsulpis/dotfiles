@@ -1,5 +1,6 @@
 #!/bin/zsh
 
+
 #################
 # === Utils === #
 #################
@@ -16,6 +17,7 @@ function printInstalling() {
 
 printYellow "|\n| Hi $(whoami)! Let's get you set up.\n|"
 
+
 ###############
 # === SSH === #
 ###############
@@ -29,6 +31,7 @@ if [ ! -f ~/.ssh/config ]; then
     ssh-add -K ~/.ssh/id_ed25519
 fi
 
+
 ###################
 # === Rosetta === #
 ###################
@@ -38,6 +41,7 @@ if [ ! $(/usr/bin/pgrep oahd) ]; then
     printInstalling "rosetta"
     sudo softwareupdate --install-rosetta --agree-to-license
 fi
+
 
 ####################
 # === Homebrew === #
@@ -58,6 +62,7 @@ printYellow "Running brew bundle..."
 brew tap homebrew/bundle
 brew bundle
 
+
 #####################
 # === Oh My Zsh === #
 #####################
@@ -73,6 +78,7 @@ git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:
 
 source ./.zshrc
 
+
 ################
 # === Node === #
 ################
@@ -84,6 +90,7 @@ fi
 printInstalling "global npm packages";
 pnpm i -g serve npm-check-updates @antfu/ni
 
+
 ####################
 # === Symlinks === #
 ####################
@@ -92,6 +99,15 @@ printYellow "Creating symlinks in the home directory..."
 for file in .zshrc .gitconfig 
     do ln -sF $(pwd)/$file $HOME/$file
 done
+
+
+######################
+# === Origin URL === #
+######################
+
+printYellow "Changing the url of the remote origin to use SSH..."
+git remote set-url origin git@github.com:jsulpis/dotfiles.git
+
 
 ##############################
 # === System Preferences === #
