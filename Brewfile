@@ -22,6 +22,7 @@ cask 'visual-studio-code'
 cask 'postman'
 cask 'figma'
 cask 'skype'
+cask 'ferdium'
 cask 'zoom'
 cask 'discord'
 cask 'kdrive'
@@ -37,3 +38,4 @@ cask 'font-jetbrains-mono'
 # Mac App Store
 mas 'Giphy Capture', id: 668208984
 mas 'Speedtest', id: 1153157709
+mas 'Lightshot Screenshot', id: 526298438
