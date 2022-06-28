@@ -1,0 +1,34 @@
+{
+  "template": {
+    "prefix": "vtemplate",
+    "body": ["<template>", "  $1", "</template>"],
+    "description": "Create a <template> block"
+  },
+  "script": {
+    "prefix": "vscript",
+    "body": ["<script setup lang=\"ts\">", "  $1", "</script>"],
+    "description": "Create a <script setup> block with Typescript language"
+  },
+  "style": {
+    "prefix": "vstyle",
+    "body": ["<style lang=\"scss\" scoped>", "  $1", "</style>"],
+    "description": "Create a <style> block with Sass preprocessor"
+  },
+  "component": {
+    "prefix": "vcomponent",
+    "body": [
+      "<script setup lang=\"ts\">",
+      "  $1",
+      "</script>",
+      "",
+      "<template>",
+      "  $2",
+      "</template>",
+      "",
+      "<style lang=\"scss\" scoped>",
+      "  $3",
+      "</style>"
+    ],
+    "description": "Create a component with script (Typescript), template and style (Sass)"
+  }
+}

@@ -100,6 +100,12 @@ for file in .zshrc .gitconfig
     do ln -sF $(pwd)/$file $HOME/$file
 done
 
+printYellow "Creating symlinks for VS Code settings..."
+# I actually use the synchronize feature of VS Code, I put these files here for reference
+ln -sF $(pwd)/.vscode/settings.json ~/Library/Application\ Support/Code/User/settings.json
+ln -sF $(pwd)/.vscode/keybindings.json ~/Library/Application\ Support/Code/User/keybindings.json
+ln -sF $(pwd)/.vscode/snippets ~/Library/Application\ Support/Code/User/snippets
+
 
 ######################
 # === Origin URL === #

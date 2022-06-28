@@ -1,0 +1,61 @@
+{
+  "workbench.colorTheme": "Material Theme Darker High Contrast",
+  "workbench.iconTheme": "material-icon-theme",
+  "terminal.integrated.defaultProfile.osx": "zsh",
+  "workbench.editor.highlightModifiedTabs": true,
+  "explorer.confirmDelete": false,
+  "explorer.confirmDragAndDrop": false,
+  "security.workspace.trust.untrustedFiles": "open",
+  "editor.tabCompletion": "off",
+  // editor
+  "editor.fontFamily": "JetBrains Mono, Menlo, Monaco, 'Courier New', monospace",
+  "editor.fontLigatures": true,
+  "editor.defaultFormatter": "esbenp.prettier-vscode",
+  "editor.snippetSuggestions": "top",
+  "editor.suggestSelection": "first",
+  "editor.formatOnSave": true,
+  "editor.formatOnPaste": false,
+  "editor.formatOnType": false,
+  "editor.bracketPairColorization.enabled": true,
+  "editor.guides.bracketPairs": "active",
+  "editor.gotoLocation.multipleDefinitions": "goto",
+  "editor.codeActionsOnSave": {
+    "source.fixAll": true,
+    "source.fixAll.eslint": false,
+    "source.organizeImports": false
+  },
+  // builtin features
+  "typescript.updateImportsOnFileMove.enabled": "always",
+  "javascript.updateImportsOnFileMove.enabled": "always",
+  "git.suggestSmartCommit": false,
+  "git.untrackedChanges": "separate",
+  "scm.defaultViewMode": "tree",
+  "diffEditor.ignoreTrimWhitespace": false,
+  "files.associations": {
+    "*.gql": "graphql",
+    "*.json": "json"
+  },
+  "search.exclude": {
+    "**/dist/**": true,
+    "**/node_modules/**": true,
+    ".nuxt": true,
+    "**/package-lock.json": true,
+    "**/pnpm-lock.yaml": true,
+    "**/yarn.lock": true
+  },
+  "search.useIgnoreFiles": true,
+  // extensions
+  "formattingToggle.affects": ["editor.formatOnSave"],
+  "eslint.validate": ["js", "ts", "jsx", "tsx", "vue", "html", "javascript"],
+  "[svg]": {
+    "editor.defaultFormatter": "jock.svg"
+  },
+  "git-graph.maxDepthOfRepoSearch": 2,
+  "volar.completion.preferredTagNameCase": "pascal",
+  "volar.takeOverMode.enabled": true,
+  "settingsSync.ignoredSettings": ["projectManager.git.baseFolders"],
+  "projectManager.git.baseFolders": [
+    "/Users/julien/dev/projets",
+    "/Users/julien/dev/oss"
+  ]
+}
