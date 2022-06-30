@@ -198,6 +198,14 @@ defaults write com.apple.terminal StringEncodings -array 4
 
 
 ###############################################################################
+# Trackpad			                                                          #
+###############################################################################
+
+# Set the force of the click to 'light'
+defaults write com.apple.AppleMultitouchTrackpad FirstClickThreshold -int 0
+
+
+###############################################################################
 # Time Machine                                                                #
 ###############################################################################
 
