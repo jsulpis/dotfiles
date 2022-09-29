@@ -4,6 +4,11 @@
     "body": ["const { t } = useI18n();"],
     "description": "Import i18n t function"
   },
+  "Use Composable": {
+    "prefix": "use",
+    "body": ["const { $2 } = use$1();"],
+    "description": "Faster way to destructure a composable"
+  },
   "Vue Composition API - Props": {
     "prefix": "vprops",
     "body": ["defineProps<{ $1 }>();"],

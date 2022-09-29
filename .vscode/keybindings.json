@@ -6,5 +6,9 @@
   {
     "key": "ctrl+shift+tab",
     "command": "workbench.action.previousEditorInGroup"
+  },
+  {
+    "key": "cmd+g",
+    "command": "git-graph.view"
   }
 ]

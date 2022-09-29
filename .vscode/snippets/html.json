@@ -1,12 +1,16 @@
 {
   "Vue v-for": {
     "prefix": "vfor",
-    "body": ["v-for=\"${1:item} in ${1:item}s\" :key=\"$2\""],
+    "body": [
+      "v-for=\"${1:item} in ${1:item}s\" :key=\"$2\""
+    ],
     "description": "vfor statement"
   },
   "Vue i18n": {
     "prefix": "useI18n",
-    "body": ["{{ t('$1') }}"],
-    "description": "Display translated message"
+    "description": "Display translated message",
+    "body": [
+      "{{ $t('$1') }}"
+    ]
   }
 }
