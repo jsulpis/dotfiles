@@ -1,14 +1,39 @@
 [
-  {
-    "key": "ctrl+tab",
-    "command": "workbench.action.nextEditorInGroup"
-  },
-  {
-    "key": "ctrl+shift+tab",
-    "command": "workbench.action.previousEditorInGroup"
-  },
-  {
-    "key": "cmd+g",
-    "command": "git-graph.view"
-  }
+   {
+      "key": "ctrl+tab",
+      "command": "workbench.action.nextEditorInGroup"
+   },
+   {
+      "key": "ctrl+shift+tab",
+      "command": "workbench.action.previousEditorInGroup"
+   },
+   {
+      "key": "cmd+g",
+      "command": "-workbench.action.terminal.findNext",
+      "when": "terminalFindFocused && terminalHasBeenCreated || terminalFindFocused && terminalProcessSupported || terminalFocus && terminalHasBeenCreated || terminalFocus && terminalProcessSupported"
+   },
+   {
+      "key": "cmd+g",
+      "command": "-editor.action.nextMatchFindAction",
+      "when": "editorFocus"
+   },
+   {
+      "key": "cmd+g",
+      "command": "git-graph.view"
+   },
+   {
+      "key": "shift+cmd+g",
+      "command": "-editor.action.previousMatchFindAction",
+      "when": "editorFocus"
+   },
+   {
+      "key": "shift+cmd+g",
+      "command": "workbench.view.scm",
+      "when": "workbench.scm.active"
+   },
+   {
+      "key": "ctrl+shift+g",
+      "command": "-workbench.view.scm",
+      "when": "workbench.scm.active"
+   }
 ]
