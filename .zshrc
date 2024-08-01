@@ -31,7 +31,7 @@ alias grm="git fetch && git rebase origin/HEAD"
 alias gst="git status"
 alias gps="git push origin HEAD"
 alias gpsf="git push origin HEAD --force-with-lease" # After rebase :) 
-alias gpl="git pull"
+alias gpl="git pull origin HEAD"
 
 alias ga="git add -A"
 alias gc="git commit"
@@ -66,3 +66,10 @@ eval "$(starship init zsh)"
 # === pnpm ===
 export PNPM_HOME="$HOME/Library/pnpm"
 export PATH="$PNPM_HOME:$PATH"
+
+
+# === bun ===
+[ -s "/Users/julien/.bun/_bun" ] && source "/Users/julien/.bun/_bun"
+
+export BUN_INSTALL="$HOME/.bun"
+export PATH="$BUN_INSTALL/bin:$PATH"

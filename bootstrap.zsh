@@ -88,7 +88,7 @@ if [ ! "$(nvm ls | grep lts)" ]; then
     nvm install --lts
 fi
 printInstalling "global npm packages";
-pnpm i -g serve npm-check-updates @antfu/ni
+pnpm i -g serve npm-check-updates @antfu/ni vercel
 
 
 ####################

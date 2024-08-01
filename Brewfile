@@ -9,7 +9,9 @@ brew 'pnpm'
 brew 'yarn'
 brew 'starship'
 brew 'mas'
+brew 'rust'
 brew 'svn' # Needed to install fonts
+brew 'ffmpeg'
 
 # Apps
 cask 'brave-browser'
@@ -28,6 +30,8 @@ cask 'discord'
 cask 'kdrive'
 cask 'rectangle'
 cask 'blender'
+cask 'warp'
+cask 'raycast'
 
 # Fonts
 cask 'font-lato'
