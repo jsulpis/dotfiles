@@ -24,7 +24,7 @@ printYellow "|\n| Hi $(whoami)! Let's get you set up.\n|"
 
 if [ ! -f ~/.ssh/config ]; then
     printYellow "Generating SSH keys and configuration..."
-    ssh-keygen -t ed25519 -C 'julien.sulpis@gmail.com' -f ~/.ssh/id_ed25519
+    ssh-keygen -t ed25519 -C 'code@jsulpis.dev' -f ~/.ssh/id_ed25519
     eval "$(ssh-agent -s)"
     touch ~/.ssh/config
     echo "Host *\n AddKeysToAgent yes\n UseKeychain yes\n IdentityFile ~/.ssh/id_ed25519" | tee ~/.ssh/config
