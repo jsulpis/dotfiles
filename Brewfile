@@ -1,5 +1,4 @@
 # Taps
-tap 'homebrew/cask'
 tap 'homebrew/cask-fonts'
 tap 'homebrew/bundle'
 
@@ -12,6 +11,7 @@ brew 'mas'
 brew 'rust'
 brew 'svn' # Needed to install fonts
 brew 'ffmpeg'
+brew 'git-lfs'
 
 # Apps
 cask 'brave-browser'
