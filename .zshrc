@@ -20,12 +20,25 @@ export NVM_DIR="$HOME/.nvm"
 source $(brew --prefix nvm)/nvm.sh
 
 
-# === Git Aliases ===
-alias gcl="git clone"
-alias grt='cd "$(git rev-parse --show-toplevel)"' # Go to project root
+alias ll='ls -lah'
+alias l='ls -lh'
 
+
+# === Git Aliases ===
+
+# Go to project root
+grt() {
+ cd "$(git rev-parse --show-toplevel)"
+}
+
+# Checkout main branch and pull latest changes
 # if your repo has been initialized locally (not cloned), run 'git remote set-head origin -a'
-alias gcm="git switch $(git symbolic-ref refs/remotes/origin/HEAD | cut -d/ -f4) && git pull origin HEAD"
+gcm() {
+  git switch $(git symbolic-ref refs/remotes/origin/HEAD | cut -d/ -f4)
+  git pull origin HEAD
+}
+
+alias gcl="git clone"
 alias grm="git fetch && git rebase origin/HEAD"
 
 alias gst="git status"
