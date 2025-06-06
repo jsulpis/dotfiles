@@ -1,7 +1,5 @@
 format = """
-$username\
 $hostname\
-$localip\
 $directory\
 $git_branch\
 $git_state\
