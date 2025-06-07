@@ -1,7 +1,3 @@
-# Taps
-tap 'homebrew/cask-fonts'
-tap 'homebrew/bundle'
-
 # Binaries
 brew 'nvm'
 brew 'pnpm'
@@ -24,13 +20,14 @@ cask 'visual-studio-code'
 cask 'postman'
 cask 'figma'
 cask 'skype'
-cask 'zoom'
 cask 'discord'
 cask 'kdrive'
 cask 'rectangle'
 cask 'blender'
 cask 'warp'
 cask 'raycast'
+cask 'arc'
+cask 'jottacloud'
 
 # Fonts
 cask 'font-lato'
@@ -40,3 +37,5 @@ cask 'font-jetbrains-mono'
 
 # Mac App Store
 mas 'Speedtest', id: 1153157709
+mas 'DaVinci Resolve', id: 571213070
+mas 'Magic Disk Benchmark', id: 1608793370
