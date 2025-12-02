@@ -19,9 +19,7 @@ cask 'thunderbird'
 cask 'visual-studio-code'
 cask 'postman'
 cask 'figma'
-cask 'skype'
 cask 'discord'
-cask 'kdrive'
 cask 'rectangle'
 cask 'blender'
 cask 'warp'
@@ -39,3 +37,4 @@ cask 'font-jetbrains-mono'
 mas 'Speedtest', id: 1153157709
 mas 'DaVinci Resolve', id: 571213070
 mas 'Magic Disk Benchmark', id: 1608793370
+mas 'Bitwarden', id: 1352778147
