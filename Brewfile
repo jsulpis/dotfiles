@@ -8,6 +8,8 @@ brew 'rust'
 brew 'svn' # Needed to install fonts
 brew 'ffmpeg'
 brew 'git-lfs'
+brew "anomalyco/tap/opencode"
+brew 'gh'
 
 # Apps
 cask 'brave-browser'
@@ -26,6 +28,7 @@ cask 'warp'
 cask 'raycast'
 cask 'arc'
 cask 'jottacloud'
+cask 'zed'
 
 # Fonts
 cask 'font-lato'
