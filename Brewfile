@@ -1,3 +1,5 @@
+tap 'bysiber/cleardisk'
+
 # Binaries
 brew 'nvm'
 brew 'pnpm'
@@ -12,7 +14,6 @@ brew "anomalyco/tap/opencode"
 brew 'gh'
 
 # Apps
-cask 'brave-browser'
 cask 'google-chrome'
 cask 'firefox'
 cask 'slack'
@@ -29,6 +30,7 @@ cask 'raycast'
 cask 'arc'
 cask 'jottacloud'
 cask 'zed'
+cask 'cleardisk'
 
 # Fonts
 cask 'font-lato'

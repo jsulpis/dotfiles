@@ -32,17 +32,6 @@ if [ ! -f ~/.ssh/config ]; then
 fi
 
 
-###################
-# === Rosetta === #
-###################
-
-# required for the KDrive app
-if [ ! $(/usr/bin/pgrep oahd) ]; then
-    printInstalling "rosetta"
-    sudo softwareupdate --install-rosetta --agree-to-license
-fi
-
-
 ####################
 # === Homebrew === #
 ####################
@@ -88,7 +77,7 @@ if [ ! "$(nvm ls | grep lts)" ]; then
     nvm install --lts
 fi
 printInstalling "global npm packages";
-pnpm i -g serve npm-check-updates @antfu/ni vercel
+pnpm i -g @antfu/ni vercel
 
 
 ####################
