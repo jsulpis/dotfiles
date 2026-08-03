@@ -13,16 +13,14 @@ This repository contains everything I could find to automatically setup a new Ma
   - Oh My Zsh with a few plugins and the Starship prompt
   - nvm and node LTS
   - yarn/pnpm with a few global packages
-- Create symlinks for global configs (.gitconfig, .zshrc)
+- Create symlinks for global configs (.gitconfig, .zshrc, Starship)
 - Change some System Preferences (UI, Dock, Finder...)
-
-All this with one script :)
 
 The script will not crash if executed again (it will skip what is already installed), so it can be used to update the settings as well.
 
 ## Usage
 
-Clone the repo (git should come pre-installed with your Mac):
+Clone the repo:
 
 ```bash
 git clone https://github.com/jsulpis/dotfiles.git ~/.dotfiles && cd ~/.dotfiles
@@ -33,7 +31,7 @@ Review the code ! Change the name and email address.
 Run the script:
 
 ```bash
-./bootstrap.zsh
+./bootstrap.sh
 ```
 
 Installation is done. The script indicates the next steps to follow.
