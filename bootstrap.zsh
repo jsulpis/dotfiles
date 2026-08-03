@@ -48,7 +48,6 @@ printYellow "Running brew update..."
 brew update
 
 printYellow "Running brew bundle..."
-brew tap homebrew/bundle
 brew bundle
 
 

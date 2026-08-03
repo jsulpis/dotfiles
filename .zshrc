@@ -1,11 +1,8 @@
 # === Oh My Zsh ===
-# sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 export ZSH="$HOME/.oh-my-zsh"
 
 
 # === Zsh Plugin ===
-# git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
-# git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting
 plugins=(
     zsh-autosuggestions
     zsh-syntax-highlighting
@@ -15,7 +12,6 @@ source $ZSH/oh-my-zsh.sh
 
 
 # === NVM ===
-# brew install nvm 
 export NVM_DIR="$HOME/.nvm"
 source $(brew --prefix nvm)/nvm.sh
 
@@ -40,19 +36,17 @@ gcm() {
 
 alias gcl="git clone"
 alias grm="git fetch && git rebase origin/HEAD"
+alias grmi="git fetch && git rebase -i origin/HEAD"
 
 alias gst="git status"
 alias gps="git push origin HEAD"
-alias gpsf="git push origin HEAD --force-with-lease" # After rebase :) 
-alias gpl="git pull origin HEAD"
+alias gpsf="git push origin HEAD --force-with-lease"
 
 alias ga="git add -A"
 alias gc="git commit"
 alias gca="git commit --amend --no-edit"
 alias gs="git stash"
 alias gsp="git stash pop"
-
-alias gl="git lg --all" # git alias defined in .gitconfig
 
 
 # === Utilities ===
@@ -71,7 +65,6 @@ killport() {
 
 
 # === Starship prompt ===
-# brew install starship
 export STARSHIP_CONFIG=~/.dotfiles/starship.toml
 eval "$(starship init zsh)"
 
@@ -87,5 +80,8 @@ export PATH="$PNPM_HOME:$PATH"
 export BUN_INSTALL="$HOME/.bun"
 export PATH="$BUN_INSTALL/bin:$PATH"
 
-# Added by LM Studio CLI (lms)
-export PATH="$PATH:/Users/julien/.lmstudio/bin"
+
+# === Secrets ===
+# security add-generic-password -s "TOKEN_NAME" -a $USER -w "secret_token_here"
+export GITHUB_PAT_MCP=$(security find-generic-password -s "GITHUB_PAT_MCP" -w)
+export CHANGELOGEN_TOKENS_GITHUB=$(security find-generic-password -s "GITHUB_PAT_RELEASE" -w)

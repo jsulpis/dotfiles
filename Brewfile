@@ -1,5 +1,3 @@
-tap 'bysiber/cleardisk'
-
 # Binaries
 brew 'nvm'
 brew 'pnpm'
@@ -30,7 +28,9 @@ cask 'raycast'
 cask 'arc'
 cask 'jottacloud'
 cask 'zed'
-cask 'cleardisk'
+cask 'pearcleaner'
+cask 'orbstack'
+cask 'opencode-desktop'
 
 # Fonts
 cask 'font-lato'

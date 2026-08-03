@@ -1,5 +1,6 @@
 [alias]
 	lg = log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --max-count=15
+	wip = git add -A && git commit -m "WIP" --no-verify
 [user]
 	name = Julien Sulpis
 	email = code@jsulpis.dev
