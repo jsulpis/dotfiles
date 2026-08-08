@@ -20,9 +20,9 @@
   "editor.guides.bracketPairs": "active",
   "editor.gotoLocation.multipleDefinitions": "goto",
   "editor.codeActionsOnSave": {
-    "source.fixAll": true,
-    "source.fixAll.eslint": false,
-    "source.organizeImports": false
+    "source.fixAll": "explicit",
+    "source.fixAll.eslint": "never",
+    "source.organizeImports": "never"
   },
   // builtin features
   "typescript.updateImportsOnFileMove.enabled": "always",
