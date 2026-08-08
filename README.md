@@ -12,7 +12,7 @@ This repository contains everything I could find to automatically setup a new Ma
   - all my apps and a few fonts using Homebrew
   - Oh My Zsh with a few plugins and the Starship prompt
   - nvm and node LTS
-  - yarn/pnpm with a few global packages
+  - pnpm with a few global packages
 - Create symlinks for global configs (.gitconfig, .zshrc, Starship)
 - Change some System Preferences (UI, Dock, Finder...)
 
