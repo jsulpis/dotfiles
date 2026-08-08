@@ -24,6 +24,12 @@ printInstalling() {
 printYellow "|\n| Hi $(whoami)! Let's get you set up.\n|"
 
 
+if [ "$OS" = "Linux" ]; then
+    printInstalling "OS libs"
+    sudo apt update && sudo apt install -y unzip xclip
+fi
+
+
 ###############
 # === SSH === #
 ###############
@@ -63,30 +69,15 @@ else
 fi
 
 
-####################
-# === Homebrew === #
-####################
+###############
+# === ZSH === #
+###############
 
-if ! command -v brew >/dev/null 2>&1; then
-    printInstalling "homebrew"
-    /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
-
-
-    BREW_PREFIX="$(brew --prefix)"
-    echo "eval \"\$($BREW_PREFIX/bin/brew shellenv)\"" >> "$HOME/.zprofile"
-    eval "$("$BREW_PREFIX/bin/brew" shellenv)"
+if [ "$OS" = "Linux" ]; then
+    printInstalling "Zsh"
+    sudo apt install -y zsh
+    chsh -s $(which zsh)
 fi
-
-printYellow "Running brew update..."
-brew update
-
-printYellow "Running brew bundle..."
-brew bundle
-
-
-#####################
-# === Oh My Zsh === #
-#####################
 
 if [ ! -d "$HOME/.oh-my-zsh" ]; then
     printInstalling "Oh My Zsh"
@@ -99,21 +90,78 @@ mkdir -p "$zsh_custom/plugins"
 [ -d "$zsh_custom/plugins/zsh-syntax-highlighting" ] || git clone https://github.com/zsh-users/zsh-syntax-highlighting.git "$zsh_custom/plugins/zsh-syntax-highlighting"
 
 
+####################
+# === Homebrew === #
+####################
+
+if ! command -v brew >/dev/null 2>&1; then
+    printInstalling "homebrew"
+    /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+
+
+    if [ "$OS" = "Darwin" ]; then
+        BREW_PREFIX="/opt/homebrew"
+        echo "eval \"\$($BREW_PREFIX/bin/brew shellenv)\"" >> "$HOME/.zprofile"
+    else
+        BREW_PREFIX="/home/linuxbrew/.linuxbrew"
+        (echo "eval \"\$($BREW_PREFIX/bin/brew shellenv)\""; cat ".zshrc") > temp && mv temp ".zshrc"
+    fi
+    eval "$("$BREW_PREFIX/bin/brew" shellenv)"
+fi
+
+printYellow "Running brew update..."
+brew update
+
+printYellow "Running brew bundle..."
+brew trust --formula anomalyco/tap/opencode
+brew bundle
+
+
+##################
+# === Docker === #
+##################
+
+if [ "$OS" = "Linux" ]; then
+    printInstalling "docker"
+    # Add Docker's official GPG key:
+    sudo apt install -y ca-certificates curl
+    sudo install -m 0755 -d /etc/apt/keyrings
+
+    DISTRO=$(. /etc/os-release && echo "$ID")
+
+    if [[ "$DISTRO" =~ ^(ubuntu|raspbian)$ ]]; then
+        sudo curl -fsSL "https://download.docker.com/linux/${DISTRO}/gpg" -o /etc/apt/keyrings/docker.asc
+        sudo chmod a+r /etc/apt/keyrings/docker.asc
+
+        CODENAME=$(. /etc/os-release && echo "${UBUNTU_CODENAME:-$VERSION_CODENAME}")
+
+        echo "deb [arch=$(dpkg --print-architecture) signed-by=/etc/apt/keyrings/docker.asc] https://download.docker.com/linux/${DISTRO} ${CODENAME} stable" | \
+        sudo tee /etc/apt/sources.list.d/docker.list > /dev/null
+    fi
+
+    sudo apt update
+
+    ## Install the Docker packages
+    sudo apt install -y docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin
+
+    ## Add current user to the docker group
+    sudo usermod -aG docker $USER
+fi
+
+
 ################
 # === Node === #
 ################
 
-nvm_prefix="$(brew --prefix nvm 2>/dev/null || true)"
-if [ -s "$nvm_prefix/nvm.sh" ]; then
-    printInstalling "node LTS"
-    export NVM_DIR="$HOME/.nvm"
-    mkdir -p "$NVM_DIR"
-    source "$nvm_prefix/nvm.sh"
-    nvm install --lts
-fi
+export NVM_DIR="$HOME/.nvm"
+NVM_PREFIX="${HOMEBREW_PREFIX}/opt/nvm"
 
-if ! nvm ls 2>/dev/null | grep -q 'lts/'; then
-    nvm install --lts
+if [ -s "$NVM_PREFIX/nvm.sh" ]; then
+    source "$NVM_PREFIX/nvm.sh"
+    if ! nvm version "lts/*" >/dev/null 2>&1; then
+        printInstalling "node LTS"
+        nvm install --lts
+    fi
 fi
 
 

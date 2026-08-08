@@ -11,6 +11,11 @@ plugins=(
 source $ZSH/oh-my-zsh.sh
 
 
+# === Starship prompt ===
+export STARSHIP_CONFIG="$HOME/.dotfiles/starship.toml"
+eval "$(starship init zsh)"
+
+
 # === NVM ===
 export NVM_DIR="$HOME/.nvm"
 source $(brew --prefix nvm)/nvm.sh
@@ -64,26 +69,7 @@ killport() {
 }
 
 
-# === Starship prompt ===
-export STARSHIP_CONFIG=~/.dotfiles/starship.toml
-eval "$(starship init zsh)"
-
-
-# === pnpm ===
-export PNPM_HOME="/Users/julien/Library/pnpm"
-case ":$PATH:" in
-  *":$PNPM_HOME/bin:"*) ;;
-  *) export PATH="$PNPM_HOME/bin:$PATH" ;;
-esac
-
-# === bun ===
-[ -s "/Users/julien/.bun/_bun" ] && source "/Users/julien/.bun/_bun"
-
-export BUN_INSTALL="$HOME/.bun"
-export PATH="$BUN_INSTALL/bin:$PATH"
-
-
 # === Secrets ===
 # security add-generic-password -s "TOKEN_NAME" -a $USER -w "secret_token_here"
-export GITHUB_PAT_MCP=$(security find-generic-password -s "GITHUB_PAT_MCP" -w)
-export CHANGELOGEN_TOKENS_GITHUB=$(security find-generic-password -s "GITHUB_PAT_RELEASE" -w)
+# export GITHUB_PAT_MCP=$(security find-generic-password -s "GITHUB_PAT_MCP" -w)
+# export CHANGELOGEN_TOKENS_GITHUB=$(security find-generic-password -s "GITHUB_PAT_RELEASE" -w)
