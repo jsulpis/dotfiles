@@ -1,7 +1,6 @@
 # Binaries
 brew 'nvm'
 brew 'pnpm'
-brew 'yarn'
 brew 'starship'
 brew 'rust'
 brew 'ffmpeg'

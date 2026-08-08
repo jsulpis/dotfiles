@@ -220,7 +220,7 @@ git remote set-url origin git@github.com:jsulpis/dotfiles.git
 if [ "$OS" = "Darwin" ] && [ -f "$DOTFILES_DIR/.macos" ]; then
     printYellow "Changing system settings..."
     # shellcheck disable=SC1091
-    . "$DOTFILES_DIR/.macos"
+    bash "$DOTFILES_DIR/.macos"
 fi
 
 printGreen "\nInstallation complete !"
