@@ -70,6 +70,15 @@ killport() {
 
 
 # === Secrets ===
-# security add-generic-password -s "TOKEN_NAME" -a $USER -w "secret_token_here"
+# MacOS
+# setup: 
+#   - security add-generic-password -s "TOKEN_NAME" -a $USER -w "secret_token_here"
 # export GITHUB_PAT_MCP=$(security find-generic-password -s "GITHUB_PAT_MCP" -w)
 # export CHANGELOGEN_TOKENS_GITHUB=$(security find-generic-password -s "GITHUB_PAT_RELEASE" -w)
+
+# Ubuntu
+# setup:
+#   - gpg --full-generate-key -> keep defaults, enter name and email address
+#   - pass init <emailaddress>
+#   - pass insert github/token_gh_cli
+# export GH_TOKEN=$(pass github/token_gh_cli)

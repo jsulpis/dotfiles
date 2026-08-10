@@ -26,7 +26,7 @@ printYellow "|\n| Hi $(whoami)! Let's get you set up.\n|"
 
 if [ "$OS" = "Linux" ]; then
     printInstalling "OS libs"
-    sudo apt update && sudo apt install -y unzip xclip
+    sudo apt update && sudo apt install -y unzip xclip pass gpg
 fi
 
 
@@ -178,7 +178,7 @@ if ! grep -q "PNPM_HOME" ~/.zshrc 2>/dev/null; then
     pnpm setup
 fi
 printInstalling "global npm packages"
-pnpm i -g @antfu/ni
+pnpm i -g @antfu/ni @openchamber/web
 
 
 ####################
