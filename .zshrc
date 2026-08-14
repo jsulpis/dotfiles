@@ -56,16 +56,23 @@ alias gsp="git stash pop"
 
 # === Utilities ===
 killport() {
-    pid=$(lsof -n -i:$1 | grep LISTEN | awk '{ print $2 }' | uniq)
-    
-    if [ ! -z "$pid" ] 
-    then 
-        kill -TERM $pid || kill -KILL $pid;
-        echo "Successfully killed process $pid listening on port $1.";
-    else 
-        echo "No process listening on port $1.";
+    if [ -z "$1" ]; then
+        echo "Usage: killport <port>"
+        return 1
     fi
-    
+
+    # -t: output PIDs only
+    # -i TCP:$1: filter on specific TCP port
+    # -sTCP:LISTEN: filter for listening sockets only
+    local pids
+    pids=$(lsof -ti TCP:"$1" -sTCP:LISTEN 2>/dev/null)
+
+    if [ -n "$pids" ]; then
+        kill -TERM $pids 2>/dev/null || kill -KILL $pids 2>/dev/null
+        echo "Successfully killed process(es) on port $1 (PID: $(echo $pids | tr '\n' ' '))."
+    else
+        echo "No process listening on port $1."
+    fi
 }
 
 
